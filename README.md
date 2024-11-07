@@ -7,7 +7,7 @@
 
 -------
 
-# Title of the demo
+# Making a shopping experience more fun: how to animate a shopping cart
 
 *A description of the demo goes here.*
 
@@ -27,7 +27,7 @@ Run this demo on a [local server](https://developer.mozilla.org/en-US/docs/Learn
 
 ## Misc
 
-Follow *Author*: [Twitter](), [Instagram](), [GitHub]() 
+Follow *Author*: [X](https://x.com/biazo_5), [Instagram](https://www.instagram.com/biazo5/), [Linkedin](https://www.linkedin.com/in/andreabiason/), [GitHub](https://github.com/biazo) 
 
 Follow Codrops: [Bluesky](https://bsky.app/profile/codrops.bsky.social), [Facebook](http://www.facebook.com/codrops), [GitHub](https://github.com/codrops), [Instagram](https://www.instagram.com/codropsss/), [X](http://www.x.com/codrops)
 
