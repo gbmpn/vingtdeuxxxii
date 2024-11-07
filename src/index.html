@@ -11,7 +11,7 @@
 		<script>document.documentElement.className="js";</script>
 		<!--script src="//tympanus.net/codrops/adpacks/analytics.js"></script-->
 	</head>
-	<body class="demo-1">
+	<body class="demo-1 loading">
 		<main>
 			<span class="noise"></span>
 
@@ -25,6 +25,18 @@
 					<a href="https://tympanus.net/codrops/demos/?tag=three-js">#YYY</a>
 					<a href="https://tympanus.net/codrops/demos/?tag=webgl">#ZZZ</a>
 				</nav>
+
+				<div class="cart-button">
+					<div class="cart-button__label-wrap" @click="openCart">
+						<span class="cart-button__label">Cart</span>
+						<span class="cart-button__line" />
+					</div>
+
+					<div class="cart-button__number-wrap">
+						<span class="cart-button__number-bg"></span>
+						<span class="cart-button__number">0</span>
+					</div>
+				</div>
 				<!-- <nav class="frame__demos">
 					<span>Variation 1</span>
 					<a href="index2.html">Variation 2</a>

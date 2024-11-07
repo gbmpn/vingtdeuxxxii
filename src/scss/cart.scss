@@ -1,0 +1,48 @@
+.cart-button {
+  position: relative;
+  cursor: pointer;
+
+  justify-self: end;
+
+  &__label-wrap {
+    position: relative;
+  }
+
+  &__line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  
+    width: 100%;
+    height: 1px;
+  
+    background-color: var(--color-text);
+  }
+  
+  &__number-wrap {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  
+    display: grid;
+    grid-template-areas: 'element';
+    align-items: center;
+    justify-content: center;  
+  }
+
+  &__number-bg {
+    grid-area: element;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+  
+    background-color: var(--color-accent);
+  }
+  
+  &__number {
+    font-size: 12px;
+    grid-area: element;
+    text-align: center;
+  }
+}
