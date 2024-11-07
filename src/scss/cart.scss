@@ -1,5 +1,7 @@
 .cart-button {
   position: relative;
+  
+  pointer-events: all;
   cursor: pointer;
 
   justify-self: end;
@@ -44,5 +46,150 @@
     font-size: 12px;
     grid-area: element;
     text-align: center;
+  }
+}
+
+.cart {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  z-index: 1001;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255, 255, 0.8);
+  }
+
+  &__inner {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    width: 600px;
+    height: calc(100vh - 40px);
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__inner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg);
+    z-index: 0;
+  }
+
+  &__inner-close {
+    font-size: 16px;
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    text-decoration: underline;
+
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .cart-items {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    z-index: 1;
+
+    padding: 120px 20px 60px;
+  }
+
+  .cart-items, .cart-total {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cart-item {
+    position: relative;
+
+    display: flex;
+    align-items: flex-end;
+    gap: 60px;
+
+    &__img {
+      width: 5vh;
+      height: 5vh;
+    }
+
+    &__details {
+      width: 100%;
+      font-size: 16px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &__details-title {
+      font-weight: 500;
+    }
+
+    &__details-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    &__remove-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.2);
+      text-decoration: underline;
+    }
+
+    &__details-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .cart-total {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+
+    padding-left: calc(100px);
+    padding-right: 20px;
+    width: 100%;
+
+    &__label {
+      font-weight: 500;
+    }
+
+    &__amount {
+      text-align: right;
+    }
+
+    &__taxes {
+      font-size: 12px
+    }
   }
 }

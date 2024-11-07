@@ -1,4 +1,5 @@
 import { gsap } from 'gsap';
+import Cart from './cart';
 
 export default class Products {
   constructor() {
@@ -39,11 +40,12 @@ export default class Products {
   addToCart() {
     gsap.set(this.currentGallery, { transformOrigin: this.isTopRaw ? 'top right' : 'bottom left' });
 
-    const { y, left, right, width, height } = this.currentGallery[0].getBoundingClientRect();
+    const { y, left, right, height } = this.currentGallery[0].getBoundingClientRect();
 
     const tl = gsap.timeline({
       onComplete: () => {
         gsap.set(this.currentGallery, { scale: 1, autoAlpha: 1, y: 0, x: 0 });
+        this.resetAnimation()
       },
     });
     tl.addLabel('start');
@@ -63,8 +65,8 @@ export default class Products {
           autoAlpha: 1,
         },
         '100%': {
-          x: this.isTopRaw ? this.cartButtonCoords.x - right : this.cartButtonCoords.x - left,
-          y: this.isTopRaw ? this.cartButtonCoords.y - y : this.cartButtonCoords.y - y - height,
+          x: this.isTopRaw ? this.cartButtonCoords.x - right : this.cartButtonCoords.x - left - 12,
+          y: this.isTopRaw ? this.cartButtonCoords.y - y : this.cartButtonCoords.y - y - height + 25,
           scale: 0,
           autoAlpha: 0,
         },
@@ -76,13 +78,18 @@ export default class Products {
       duration: 1.8,
       ease: 'power2.inOut',
     }, 'start');
-  
-    tl.to([this.otherProducts, this.currentProduct], {
+    
+    tl.add(() => {
+      if (Cart.cartItems.length === 0) Cart.labelAnimation();
+      Cart.addItemToCart(this.currentProduct);
+    }, 'start+=0.6');
+
+    tl.to([this.currentProduct, this.otherProducts], {
       scale: 1, autoAlpha: 1, duration: 0.8, stagger: 0.03, ease: 'power2.out',
     }, 'start+=1.6');
   }
 
-  reset() {
+  resetAnimation() {
     this.currentProduct = null;
     this.currentGallery = [];
     this.otherProducts = [];

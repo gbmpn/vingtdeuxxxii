@@ -48,17 +48,6 @@
     }
   }
 
-  &__cta {
-    color: var(--color-text);
-    font-size: 15px;
-    line-height: 1;
-
-    padding: 8px 10px;
-
-    place-self: end;
-    background-color: var(--color-accent);
-  }
-
   @for $i from 1 through 6 {
     .products__item:nth-child(#{$i}) {
       z-index: 7 - $i;

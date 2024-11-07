@@ -27,7 +27,7 @@
 				</nav>
 
 				<div class="cart-button">
-					<div class="cart-button__label-wrap" @click="openCart">
+					<div class="cart-button__label-wrap">
 						<span class="cart-button__label">Cart</span>
 						<span class="cart-button__line" />
 					</div>
@@ -47,7 +47,7 @@
 			<section class="content">
 				<div class="products">
 					<ul class="products__list">
-						<li class="products__item" data-id="0">
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="/images/product-01-cover.jpg">
 							<div class="products__images">
 								<img class="products__main-image" src="/images/product-01-cover.jpg" alt="Product 01">
 		
@@ -60,10 +60,10 @@
 									<img class="products__gallery-item" src="/images/product-01-cover.jpg" alt="Product 01 gallery">
 								</div>
 							</div>
-							<button type="button" class="products__cta">Add to cart</button>
+							<button type="button" class="products__cta button">Add to cart</button>
 						</li>
 
-						<li class="products__item" data-id="1">
+						<li class="products__item" data-id="product-02" data-price="8" data-name="Product 02" data-cover="/images/product-02-cover.jpg">
 							<div class="products__images">
 								<img class="products__main-image" src="/images/product-02-cover.jpg" alt="Product 02">
 		
@@ -76,10 +76,10 @@
 									<img class="products__gallery-item" src="/images/product-02-cover.jpg" alt="Product 02 gallery">
 								</div>
 							</div>
-							<button type="button" class="products__cta">Add to cart</button>
+							<button type="button" class="products__cta button">Add to cart</button>
 						</li>
 
-						<li class="products__item" data-id="2">
+						<li class="products__item" data-id="product-03" data-price="12" data-name="Product 03" data-cover="/images/product-03-cover.jpg">
 							<div class="products__images">
 								<img class="products__main-image" src="/images/product-03-cover.jpg" alt="Product 03">
 		
@@ -92,10 +92,10 @@
 									<img class="products__gallery-item" src="/images/product-03-cover.jpg" alt="Product 03 gallery">
 								</div>
 							</div>
-							<button type="button" class="products__cta">Add to cart</button>
+							<button type="button" class="products__cta button">Add to cart</button>
 						</li>
 
-						<li class="products__item" data-id="3">
+						<li class="products__item" data-id="product-04" data-price="5" data-name="Product 04" data-cover="/images/product-04-cover.jpg">
 							<div class="products__images">
 								<img class="products__main-image" src="/images/product-04-cover.jpg" alt="Product 04">
 		
@@ -108,10 +108,10 @@
 									<img class="products__gallery-item" src="/images/product-04-cover.jpg" alt="Product 04 gallery">
 								</div>
 							</div>
-							<button type="button" class="products__cta">Add to cart</button>
+							<button type="button" class="products__cta button">Add to cart</button>
 						</li>
 
-						<li class="products__item" data-id="4">
+						<li class="products__item" data-id="product-05" data-price="20" data-name="Product 05" data-cover="/images/product-05-cover.jpg">
 							<div class="products__images">
 								<img class="products__main-image" src="/images/product-05-cover.jpg" alt="Product 05">
 		
@@ -124,10 +124,10 @@
 									<img class="products__gallery-item" src="/images/product-05-cover.jpg" alt="Product 05 gallery">
 								</div>
 							</div>
-							<button type="button" class="products__cta">Add to cart</button>
+							<button type="button" class="products__cta button">Add to cart</button>
 						</li>
 
-						<li class="products__item" data-id="5">
+						<li class="products__item" data-id="product-06" data-price="8" data-name="Product 06" data-cover="/images/product-06-cover.jpg">
 							<div class="products__images">
 								<img class="products__main-image" src="/images/product-06-cover.jpg" alt="Product 06">
 		
@@ -140,11 +140,62 @@
 									<img class="products__gallery-item" src="/images/product-06-cover.jpg" alt="Product 06 gallery">
 								</div>
 							</div>
-							<button type="button" class="products__cta">Add to cart</button>
+							<button type="button" class="products__cta button">Add to cart</button>
 						</li>
 					</ul>
 				</div>
 			</section>
+
+			<aside class="cart">
+				<div class="cart__bg" />
+		
+				<div class="cart__inner">
+					<div class="cart__inner-close">Close</div>
+					<div class="cart__inner-bg" />
+		
+					<div class="cart-items">
+						<div v-for="item in store.cart" :key="item.id" class="cart-item">
+							<img class="cart-item__img" :src="item.image.url" :alt="item.title">
+		
+							<div class="cart-item__details">
+								<span class="cart-item__details-title" v-html="item.title" />
+		
+								<button class="cart-item__remove-btn">
+									Remove
+								</button>
+		
+								<div class="cart-item__details-wrap">
+									<span class="cart-item__details-label">Quantity:</span>
+		
+									<div class="cart-item__details-actions">
+										<button @click="buy.updateQuantity(item.id, -1)">
+											-
+										</button>
+										<span v-html="item.quantity" />
+										<button @click="buy.updateQuantity(item.id, +1)">
+											+
+										</button>
+									</div>
+									<span
+										class="cart-item__details-price"
+										v-html="item.price"
+									/>
+								</div>
+							</div>
+						</div>
+					</div>
+		
+					<div class="cart-total">
+						<div class="cart-total__label">Total:</div>
+						<div class="cart-total__amount">€ 0</div>
+						<div class="cart-total__taxes">
+							Delivery fee and tax<br>
+							calculated at checkout
+						</div>
+						<a class="cart-total__checkout-btn button" href="#">Checkout</a>
+					</div>
+				</div>
+			</aside>
 		</main>
 		<script type="module" src="/js/main.js"></script>
 
