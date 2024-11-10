@@ -80,7 +80,7 @@ export default class Products {
     }, 'start');
     
     tl.add(() => {
-      if (Cart.cartItems.length === 0) Cart.labelAnimation();
+      if (Cart.cartItems.length === 0) Cart.cartButtonAnimation();
       Cart.addItemToCart(this.currentProduct);
     }, 'start+=0.6');
 
