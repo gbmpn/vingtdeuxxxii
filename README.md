@@ -1,15 +1,6 @@
-*How to use this template:*
-
-- Styles for the demo go in css/base.css
-- Add build instructions and credits to the README.md
-- For writing the tutorial, take a look at https://github.com/crnacura/CodropsTemplate/wiki/Writing-the-article
-- Delete this 'how to' intro in the final version and leave the following (fill in title/description, credits and social links of your likings, we'll do the rest):
-
--------
-
 # Making a shopping experience more fun: how to animate a shopping cart
 
-*A description of the demo goes here.*
+*A touch of style that turns the cart into an active, dynamic part of the shopping experience*
 
 ![Image Title](https://generative-placeholders.glitch.me/image?width=800&height=600")
 
@@ -19,7 +10,29 @@
 
 ## Installation
 
-Run this demo on a [local server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server).
+Install dependencies:
+
+````
+npm run install
+````
+
+Start compiling and running a [local server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server):
+
+````
+npm run dev
+````
+
+Building application:
+
+````
+npm run build
+````
+
+View build on a local server:
+
+````
+npm run preview
+````
 
 ## Credits
 
