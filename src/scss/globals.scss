@@ -42,9 +42,16 @@
   place-self: end;
   background-color: var(--color-accent);
 
+  transition: background-color 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+
   @media(hover:hover) {
     &:hover {
       text-decoration: none;
+      background-color: var(--color-hover);
     }
   }
+}
+
+.locked {
+  overflow: hidden;
 }

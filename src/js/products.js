@@ -1,4 +1,5 @@
 import { gsap } from 'gsap';
+import { debounce } from './utils';
 import Cart from './cart';
 
 export default class Products {
@@ -30,6 +31,10 @@ export default class Products {
         this.addToCart();
       })
     })
+
+    window.addEventListener('resize', debounce(() => {
+      this.setCartButtonCoords();
+    }))
   }
 
   setCartButtonCoords() {
@@ -80,7 +85,7 @@ export default class Products {
     }, 'start');
     
     tl.add(() => {
-      if (Cart.cartItems.length === 0) Cart.cartButtonAnimation();
+      if (Cart.cartItems.length === 0) Cart.cartButtonAnimationEnter();
       Cart.addItemToCart(this.currentProduct);
     }, 'start+=0.6');
 
