@@ -31,3 +31,14 @@
 
   animation: noise 1.2s steps(3) infinite both;
 }
+
+.button {
+  color: var(--color-text);
+  font-size: 15px;
+  line-height: 1;
+
+  padding: 8px 10px;
+
+  place-self: end;
+  background-color: var(--color-accent);
+}
