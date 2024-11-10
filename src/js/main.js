@@ -7,10 +7,11 @@ import '../scss/cart.scss';
 import { preloadImages } from './utils';
 import Products from './products';
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
   new Products();
-  
-  preloadImages().then(() => {
+  const images = [...document.querySelectorAll('img')];
+
+  await preloadImages(images).then(() => {
     document.body.classList.remove('loading');
   })
 });
