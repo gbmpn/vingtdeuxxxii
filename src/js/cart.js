@@ -27,11 +27,12 @@ class Cart {
   }
 
   init() {
-    this.setupLabelAnimation();
+    this.cartButtonAnimationSetup();
     this.cartAnimationSetup();
 
     this.cartButton.addEventListener('click', () => {
       if (this.isAnimating) return;
+      document.body.classList.add('locked');
 
       this.isAnimating = true;
 
@@ -43,6 +44,7 @@ class Cart {
     
     this.cartClose.addEventListener('click', () => {
       if (this.isAnimating) return;
+      document.body.classList.remove('locked');
 
       this.isAnimating = true;
 
@@ -143,11 +145,11 @@ class Cart {
     this.updateCart();
   }
 
-  setupLabelAnimation() {
+  cartButtonAnimationSetup() {
     gsap.set([this.cartButtonNumber, this.cartButtonBg], { scale: 0 });
   }
 
-  cartButtonAnimation() {
+  cartButtonAnimationEnter() {
     const tl = gsap.timeline();
     tl.addLabel('start');
 

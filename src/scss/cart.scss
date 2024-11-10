@@ -6,6 +6,12 @@
 
   justify-self: end;
 
+  @media (max-width: 767px) {
+    position: fixed;
+    top: 22px;
+    right: 20px;
+  }
+
   &__label-wrap {
     position: relative;
   }
@@ -75,11 +81,17 @@
     width: 600px;
     height: calc(100vh - 40px);
 
-    padding: 20px;
+    padding: 120px 20px 20px;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (max-width: 767px) {
+      width: calc(100% - 40px);
+
+      padding: 100px 20px 20px;
+    }
   }
 
   &__inner-bg {
@@ -113,9 +125,17 @@
   flex-direction: column;
   gap: 60px;
 
+  height: 65vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding-bottom: 60px;
+
   z-index: 1;
 
-  padding: 120px 20px 60px;
+  @media (max-width: 767px) {
+    gap: 30px;
+  }
 }
 
 .cart-items, .cart-total {
@@ -127,6 +147,11 @@
   display: grid;
   grid-template-columns: 100px auto;
   gap: 60px;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 60px auto;
+    gap: 30px;
+  }
 }
 
 .cart-item {
@@ -136,6 +161,12 @@
   &__img {
     width: 100px;
     height: 100px;
+    object-fit: cover;
+
+    @media (max-width: 767px) {
+      width: 60px;
+      height: 60px;
+    }
   }
 
   &__details {
@@ -145,6 +176,10 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @media (max-width: 767px) {
+      gap: 10px;
+    }
   }
 
   &__details-title {
@@ -175,7 +210,6 @@
 }
 
 .cart-total {
-  padding: 0 20px;
   width: 100%;
 
   &__inner {
@@ -185,6 +219,10 @@
     gap: 30px;
 
     grid-column: 2/ 2;
+
+    @media (max-width: 767px) {
+      gap: 15px;
+    }
   }
 
   &__label {
@@ -196,6 +234,10 @@
   }
 
   &__taxes {
-    font-size: 12px
+    font-size: 12px;
+
+    @media (max-width: 767px) {
+      font-size: 9px;
+    }
   }
 }
