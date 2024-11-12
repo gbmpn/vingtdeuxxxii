@@ -43,6 +43,9 @@ export default class Products {
   }
 
   addToCart() {
+    const gallery = this.currentProduct.querySelector('.products__gallery');
+    gsap.set(gallery, { autoAlpha: 1 });
+
     gsap.set(this.currentGallery, { transformOrigin: this.isTopRaw ? 'top right' : 'bottom left' });
 
     const { y, left, right, height } = this.currentGallery[0].getBoundingClientRect();
@@ -50,6 +53,7 @@ export default class Products {
     const tl = gsap.timeline({
       onComplete: () => {
         gsap.set(this.currentGallery, { scale: 1, autoAlpha: 1, y: 0, x: 0 });
+        gsap.set(gallery, { autoAlpha: 0 });
         this.resetAnimation()
       },
     });
@@ -58,9 +62,10 @@ export default class Products {
     tl.to(this.otherProducts, {
       scale: 0.8, autoAlpha: 0.05, duration: 0.6, stagger: 0.04, ease: 'power2.out',
     }, 'start');
+    
     tl.to(this.currentProduct, {
-      scale: 1.05, duration: 0.6, ease: 'power2.out',
-    }, 'start');
+      scale: 1.05, duration: 1, ease: 'power2.out',
+    }, 'start+=0.7');
   
     tl.to(this.currentGallery, {
       keyframes: {
