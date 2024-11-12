@@ -40,7 +40,7 @@ npm run preview
 
 ## Misc
 
-Follow *Author*: [X](https://x.com/biazo_5), [Instagram](https://www.instagram.com/biazo5/), [Linkedin](https://www.linkedin.com/in/andreabiason/), [GitHub](https://github.com/biazo) 
+Follow Andrea Biason: [X](https://x.com/biazo_5), [Instagram](https://www.instagram.com/biazo5/), [Linkedin](https://www.linkedin.com/in/andreabiason/), [GitHub](https://github.com/biazo) 
 
 Follow Codrops: [Bluesky](https://bsky.app/profile/codrops.bsky.social), [Facebook](http://www.facebook.com/codrops), [GitHub](https://github.com/codrops), [Instagram](https://www.instagram.com/codropsss/), [X](http://www.x.com/codrops)
 
