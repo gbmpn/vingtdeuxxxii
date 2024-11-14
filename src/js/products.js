@@ -13,7 +13,7 @@ export default class Products {
     this.currentProduct = null;
     this.currentGallery = [];
     this.otherProducts = [];
-    this.isTopRaw = false;
+    this.isTopRow = false;
 
     this.init();
   }
@@ -26,7 +26,7 @@ export default class Products {
         this.currentProduct = this.products[i];
         this.otherProducts = this.products.filter((prod, index) => index !== i );
         this.currentGallery = [...this.currentProduct.querySelectorAll('.products__gallery-item')];
-        this.isTopRaw = window.innerWidth > 768 && i < 3;
+        this.isTopRow = window.innerWidth > 768 && i < 3;
 
         this.addToCart();
       })
@@ -46,7 +46,7 @@ export default class Products {
     const gallery = this.currentProduct.querySelector('.products__gallery');
     gsap.set(gallery, { autoAlpha: 1 });
 
-    gsap.set(this.currentGallery, { transformOrigin: this.isTopRaw ? 'top right' : 'bottom left' });
+    gsap.set(this.currentGallery, { transformOrigin: this.isTopRow ? 'top right' : 'bottom left' });
 
     const { y, left, right, height } = this.currentGallery[0].getBoundingClientRect();
 
@@ -70,13 +70,13 @@ export default class Products {
     tl.to(this.currentGallery, {
       keyframes: {
         '40%': {
-          y: this.isTopRaw ? height * 1.5 : -height * 1.5, 
-          scale: this.isTopRaw ? 0.8 : 0.5, 
+          y: this.isTopRow ? height * 1.5 : -height * 1.5, 
+          scale: this.isTopRow ? 0.8 : 0.5, 
           autoAlpha: 1,
         },
         '100%': {
-          x: this.isTopRaw ? this.cartButtonCoords.x - right : this.cartButtonCoords.x - left - 12,
-          y: this.isTopRaw ? this.cartButtonCoords.y - y : this.cartButtonCoords.y - y - height + 25,
+          x: this.isTopRow ? this.cartButtonCoords.x - right : this.cartButtonCoords.x - left - 12,
+          y: this.isTopRow ? this.cartButtonCoords.y - y : this.cartButtonCoords.y - y - height + 25,
           scale: 0,
           autoAlpha: 0,
         },
@@ -88,6 +88,7 @@ export default class Products {
       duration: 1.8,
       ease: 'power2.inOut',
     }, 'start');
+
     
     tl.add(() => {
       if (Cart.cartItems.length === 0) Cart.cartButtonAnimationEnter();

@@ -16,11 +16,11 @@ class Cart {
     this.cartOpened = false;
 
     this.animatingElements = {
-      bg: null,
-      innerBg: null,
-      close: null,
-      items: null,
-      total: null,
+      bg: this.cart.querySelector('.cart__bg'),
+      innerBg: this.cart.querySelector('.cart__inner-bg'),
+      close: this.cart.querySelector('.cart__inner-close'),
+      items: [...this.cart.querySelectorAll('.cart-item')],
+      total: [...this.cart.querySelectorAll('.cart-total > *')],
     }
 
     this.init();
@@ -127,11 +127,11 @@ class Cart {
 
     if (newQuantity > 0) {
       this.cartItems[index].quantity = newQuantity
-      this.updateCart();
     } else if (newQuantity === 0) {
       this.removeItemFromCart(id);
     }
 
+    this.updateCart();
   }
 
   removeItemFromCart(id){
@@ -160,31 +160,18 @@ class Cart {
     return tl;
   }
 
-  cartAnimationSetup() {
-    this.animatingElements.bg = this.cart.querySelector('.cart__bg');
-    this.animatingElements.innerBg = this.cart.querySelector('.cart__inner-bg');
-    this.animatingElements.close = this.cart.querySelector('.cart__inner-close');
-    this.animatingElements.noProds = this.cart.querySelector('.cart-no-products');
-    this.animatingElements.items = [...this.cart.querySelectorAll('.cart-item')];
-    this.animatingElements.total = [...this.cart.querySelectorAll('.cart-total > *')];
-
-    this.cartAnimationInit();
-  }
-
-  cartAnimationInit() { 
+  cartAnimationSetup() { 
     gsap.set(this.cart, { xPercent: 100 });
     
     gsap.set([this.animatingElements.bg, this.animatingElements.innerBg], { xPercent: 110 });
     gsap.set(this.animatingElements.close, { x: 30, autoAlpha: 0 });
-    if (this.animatingElements.items.length > 0) gsap.set(this.animatingElements.items, { x: 30, autoAlpha: 0 });
     gsap.set(this.animatingElements.total, { scale: 0.9, autoAlpha: 0 });
   };
   
   cartAnimationEnter() {
     this.animatingElements.items = [...this.cart.querySelectorAll('.cart-item')];
-    
-    this.cartAnimationInit();
-    
+    if (this.animatingElements.items.length > 0) gsap.set(this.animatingElements.items, { x: 30, autoAlpha: 0 });
+
     const tl = gsap.timeline({
       onStart: () => gsap.set(this.cart, { xPercent: 0 })
     });
@@ -214,7 +201,7 @@ class Cart {
     }, 'start+=1.6');
 
     return tl;
-  };
+  }
   
   cartAnimationLeave() {
     const tl = gsap.timeline({
@@ -245,7 +232,7 @@ class Cart {
       scale: 0.9, autoAlpha: 0, stagger: 0.1, duration: 0.8, ease: 'power2.out',
     }, 'start');
     return tl;
-  };
+  }
 }
 
 export default new Cart();
