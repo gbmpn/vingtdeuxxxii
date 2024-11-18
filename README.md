@@ -1,6 +1,6 @@
-# Making a shopping experience more fun: how to animate a shopping cart
+# Turning shopping into an experience: how to animate a shopping cart.
 
-*A touch of style that turns the cart into an active, dynamic part of the shopping experience*
+*A touch of style that turns the cart into an active, dynamic part of the shopping experience.*
 
 ![Image Title](https://generative-placeholders.glitch.me/image?width=800&height=600")
 
@@ -40,7 +40,7 @@ npm run preview
 
 ## Misc
 
-Follow Andrea Biason: [X](https://x.com/biazo_5), [Instagram](https://www.instagram.com/biazo5/), [Linkedin](https://www.linkedin.com/in/andreabiason/), [GitHub](https://github.com/biazo) 
+Follow Andrea Biason: [X](https://x.com/biazo_5), [Instagram](https://www.instagram.com/biazo5/), [Linkedin](https://www.linkedin.com/in/andreabiason/), [Website](https://biazo5.com), [GitHub](https://github.com/biazo) 
 
 Follow Codrops: [Bluesky](https://bsky.app/profile/codrops.bsky.social), [Facebook](http://www.facebook.com/codrops), [GitHub](https://github.com/codrops), [Instagram](https://www.instagram.com/codropsss/), [X](http://www.x.com/codrops)
 
