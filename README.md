@@ -1,4 +1,4 @@
-# Turning shopping into an experience: how to animate a shopping cart.
+# Shopping Cart Animation
 
 *A touch of style that turns the cart into an active, dynamic part of the shopping experience.*
 

@@ -125,6 +125,14 @@ a:focus-visible {
 
 .frame #cdawrap {
   justify-self: start;
+  font-size: 12px;
+  opacity: 1;
+  transition: opacity 0.3s 1s linear;
+	max-width: 300px;
+}
+
+.loading .frame #cdawrap {
+  opacity: 0;
 }
 
 .frame a {
@@ -156,12 +164,20 @@ a:focus-visible {
 
 .frame__tags {
   grid-area: tags;
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+	align-self: end;
 }
 
-.frame__demos {
-	grid-area: demos;
-	display: flex;
-	gap: 1rem;
+.frame__tags a {
+	border: 1px solid;
+	border-radius: 1rem;
+	padding: 1px 6px 3px;
+}
+
+.frame__tags a:hover {
+	text-decoration: none;
 }
 
 .content {
@@ -185,10 +201,12 @@ a:focus-visible {
 		grid-template-columns: auto auto auto auto 1fr;
 		grid-template-rows: auto auto;
 		align-content: space-between;
-		grid-template-areas: 'title back archive github sponsor' 'tags tags demos demos demos';
+		grid-template-areas: 'title back github archive ...' 'tags tags sponsor sponsor sponsor';
 	}
-	.frame #cdawrap, .frame__sub {
+	.frame #cdawrap {
 		justify-self: end;
+		text-align: right;
+		align-self: end;
 	}
 	.content {
 		min-height: 100vh;
