@@ -2,11 +2,11 @@
 
 *A touch of style that turns the cart into an active, dynamic part of the shopping experience.*
 
-![Image Title](https://generative-placeholders.glitch.me/image?width=800&height=600")
+![Featured Image](https://tympanus.net/codrops/wp-content/uploads/2024/11/cover-1536x1152.jpg)
 
-[Article on Codrops](https://tympanus.net/codrops/?p=)
+[Article on Codrops](https://tympanus.net/codrops/?p=82749)
 
-[Demo](https://tympanus.net/Development/.../)
+[Demo](https://tympanus.net/Tutorials/ShoppingCartAnimation/)
 
 ## Installation
 
@@ -48,8 +48,3 @@ Follow Codrops: [Bluesky](https://bsky.app/profile/codrops.bsky.social), [Facebo
 [MIT](LICENSE)
 
 Made with :blue_heart:  by [Codrops](http://www.codrops.com)
-
-
-
-
-
