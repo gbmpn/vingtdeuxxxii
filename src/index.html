@@ -9,21 +9,20 @@
 		<meta name="author" content="Andrea Biason for Codrops" />
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="stylesheet" href="https://use.typekit.net/goq1kra.css">
+		<!-- <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.20/dist/lenis.css"> -->
 		<script>document.documentElement.className="js";</script>
 	</head>
 	<body class="loading">
 		<main>
 			<span class="noise"></span>
-
-			<header class="frame">
-				<h1 class="frame__title">Add-To-Shopping Cart Animation</h1> 
-				<a class="frame__back" href="https://tympanus.net/codrops/?p=82749">Tutorial</a>
-				<a class="frame__github" href="https://github.com/biazo/codrops-add-to-cart">GitHub</a>
-				<a class="frame__archive" href="https://tympanus.net/codrops/demos/">Browse all demos</a>
+			<header>
+				<a href="/" class="logo">
+					<img src="./images/logo.png">
+				</a>
 				<div class="cart-button">
 					<div class="cart-button__label-wrap">
 						<span class="cart-button__label">Cart</span>
-						<span class="cart-button__line" />
+						<span class="cart-button__line"></span>
 					</div>
 
 					<div class="cart-button__number-wrap">
@@ -31,112 +30,409 @@
 						<span class="cart-button__number">0</span>
 					</div>
 				</div>
-				<nav class="frame__tags">
-					<a href="https://tympanus.net/codrops/demos/?tag=shopping-cart">shopping-cart</a>
-					<a href="https://tympanus.net/codrops/demos/?tag=grid">grid</a>
-				</nav>
 			</header>
+		
+			<div class="slider-container" data-lenis-prevent>
+				<div class="slider js-slider">
+					<div class="slider__inner js-slider__inner"></div>
+					
+					<div class="slide js-slide">
+					  <div class="slide__content">
+						<figure class="slide__img js-slide__img">
+						  <img src="./images/home/1.jpg">
+						</figure>
+						 <figure class="slide__img js-slide__img">
+							<img src="./images/home/2.jpg">
+						</figure>
+					  </div>
+					  
+					  <div class="slider__text js-slider__text">
+						<div class="slider__text-line js-slider__text-line"><div>vingtdeuxxxii</div></div>
+						<div class="slider__text-line js-slider__text-line"><div>عشريني وعشرون</div></div>
+						<div class="slider__text-line js-slider__text-line"><div>iskay chunka</div></div>
+						<div class="slider__text-line js-slider__text-line"><div>кокло кок</div></div>
+						<div class="slider__text-line js-slider__text-line"><div>스물두시.2020年</div></div>
+					  </div>
+					  
+					</div>
+					
+					<div class="slide js-slide">
+					  <div class="slide__content">
+						<figure class="slide__img js-slide__img">
+							<img src="./images/home/3.jpg">
+						</figure>
+						 <figure class="slide__img js-slide__img">
+							<img src="./images/home/4.jpg">
+						</figure>
+					  </div>
 
+					  <div class="slider__text js-slider__text">
+						
+						<div class="slider__text-line js-slider__text-line"><div>عشريني وعشرون</div></div>
+						<div class="slider__text-line js-slider__text-line"><div>iskay chunka</div></div>
+						<div class="slider__text-line js-slider__text-line"><div>кокло кок</div></div>
+						<div class="slider__text-line js-slider__text-line"><div>스물두시.2020年</div></div>
+						<div class="slider__text-line js-slider__text-line"><div>vingtdeuxxxii</div></div>
+					  </div>
+					</div>
+					
+					<div class="slide js-slide">
+					  <div class="slide__content">
+						<figure class="slide__img js-slide__img">
+							<img src="./images/home/5.jpg">
+						</figure>
+						 <figure class="slide__img js-slide__img">
+							<img src="./images/home/6.jpg">
+						</figure>
+					  </div>
+					  <div class="slider__text js-slider__text">
+						
+						
+						<div class="slider__text-line js-slider__text-line"><div>iskay chunka</div></div>
+						<div class="slider__text-line js-slider__text-line"><div>кокло кок</div></div>
+						<div class="slider__text-line js-slider__text-line"><div>스물두시.2020年</div></div>
+						<div class="slider__text-line js-slider__text-line"><div>vingtdeuxxxii</div></div>
+						<div class="slider__text-line js-slider__text-line"><div>عشريني وعشرون</div></div>
+					  </div>
+					</div>
+					
+					<nav class="slider__nav js-slider__nav">
+					  <div class="slider-bullet js-slider-bullet">
+						<span class="slider-bullet__text js-slider-bullet__text">01</span>
+						<span class="slider-bullet__line js-slider-bullet__line"></span>
+					  </div>
+					   <div class="slider-bullet js-slider-bullet">
+						<span class="slider-bullet__text js-slider-bullet__text">02</span>
+						<span class="slider-bullet__line js-slider-bullet__line"></span>
+					  </div>
+					   <div class="slider-bullet js-slider-bullet">
+						<span class="slider-bullet__text js-slider-bullet__text">03</span>
+						<span class="slider-bullet__line js-slider-bullet__line"></span>
+					  </div>
+					</nav>
+					
+					<div class="scroll js-scroll">Scroll</div>
+					
+				  </div>
+			</div>
 			<section class="content">
+				<div class="heading">
+				<h2>Previous Drop</h2>
+				</div>
 				<div class="products">
+					
 					<ul class="products__list">
-						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/product-01-cover.jpg">
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
 							<div class="products__images">
-								<img class="products__main-image" src="./images/product-01-cover.jpg" alt="Product 01">
-		
+								<img class="products__main-image" src="./images/3.jpg" alt="Product 01">
 								<div class="products__gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-01/01.jpg" alt="Product 01 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-01/02.jpg" alt="Product 01 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-01/03.jpg" alt="Product 01 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-01/04.jpg" alt="Product 01 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-01/05.jpg" alt="Product 01 gallery">
-									<img class="products__gallery-item" src="./images/product-01-cover.jpg" alt="Product 01 gallery">
+									<img class="products__gallery-item" src="./images/3.jpg" alt="Product 01 gallery">
+									<img class="products__gallery-item" src="./images/3.jpg" alt="Product 01 gallery">
 								</div>
 							</div>
-							<button type="button" class="products__cta button">Add to cart</button>
+							<nav class="nav-bottom">
+								<span class="soldout">sould out</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
 						</li>
 
-						<li class="products__item" data-id="product-02" data-price="8" data-name="Product 02" data-cover="./images/product-02-cover.jpg">
+						<li class="products__item" data-id="product-02" data-price="15" data-name="Product 02" data-cover="./images/1.jpg">
 							<div class="products__images">
-								<img class="products__main-image" src="./images/product-02-cover.jpg" alt="Product 02">
-		
+								<img class="products__main-image" src="./images/10.jpg" alt="Product 02">
 								<div class="products__gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-02/01.jpg" alt="Product 02 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-02/02.jpg" alt="Product 02 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-02/03.jpg" alt="Product 02 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-02/04.jpg" alt="Product 02 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-02/05.jpg" alt="Product 02 gallery">
-									<img class="products__gallery-item" src="./images/product-02-cover.jpg" alt="Product 02 gallery">
+									<img class="products__gallery-item" src="./images/10.jpg" alt="Product 02 gallery">
+									<img class="products__gallery-item" src="./images/3.jpg" alt="Product 01 gallery">
 								</div>
 							</div>
-							<button type="button" class="products__cta button">Add to cart</button>
+							<nav class="nav-bottom">
+								<span class="soldout">sould out</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
+						</li>
+						
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
+							<div class="products__images">
+								<img class="products__main-image" src="./images/5.jpg" alt="Product 01">
+								<div class="products__gallery">
+									<img class="products__gallery-item" src="./images/5.jpg" alt="Product 01 gallery">
+								</div>
+							</div>
+							<nav class="nav-bottom">
+								<span class="soldout">sould out</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
 						</li>
 
-						<li class="products__item" data-id="product-03" data-price="12" data-name="Product 03" data-cover="./images/product-03-cover.jpg">
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
 							<div class="products__images">
-								<img class="products__main-image" src="./images/product-03-cover.jpg" alt="Product 03">
-		
+								<img class="products__main-image" src="./images/12.jpg" alt="Product 01">
 								<div class="products__gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-03/01.jpg" alt="Product 03 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-03/02.jpg" alt="Product 03 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-03/03.jpg" alt="Product 03 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-03/04.jpg" alt="Product 03 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-03/05.jpg" alt="Product 03 gallery">
-									<img class="products__gallery-item" src="./images/product-03-cover.jpg" alt="Product 03 gallery">
+									<img class="products__gallery-item" src="./images/12.jpg" alt="Product 01 gallery">
 								</div>
 							</div>
-							<button type="button" class="products__cta button">Add to cart</button>
+							<nav class="nav-bottom">
+								<span class="soldout">sould out</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
 						</li>
 
-						<li class="products__item" data-id="product-04" data-price="5" data-name="Product 04" data-cover="./images/product-04-cover.jpg">
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
 							<div class="products__images">
-								<img class="products__main-image" src="./images/product-04-cover.jpg" alt="Product 04">
-		
+								<img class="products__main-image" src="./images/4.jpg" alt="Product 01">
 								<div class="products__gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-04/01.jpg" alt="Product 04 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-04/02.jpg" alt="Product 04 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-04/03.jpg" alt="Product 04 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-04/04.jpg" alt="Product 04 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-04/05.jpg" alt="Product 04 gallery">
-									<img class="products__gallery-item" src="./images/product-04-cover.jpg" alt="Product 04 gallery">
+									<img class="products__gallery-item" src="./images/4.jpg" alt="Product 01 gallery">
 								</div>
 							</div>
-							<button type="button" class="products__cta button">Add to cart</button>
+							<nav class="nav-bottom">
+								<span class="soldout">sould out</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
+						</li>
+						
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
+							<div class="products__images">
+								<img class="products__main-image" src="./images/11.jpg" alt="Product 01">
+								<div class="products__gallery">
+									<img class="products__gallery-item" src="./images/11.jpg" alt="Product 01 gallery">
+								</div>
+							</div>
+							<nav class="nav-bottom">
+								<span class="soldout">sould out</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
 						</li>
 
-						<li class="products__item" data-id="product-05" data-price="20" data-name="Product 05" data-cover="./images/product-05-cover.jpg">
+
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
 							<div class="products__images">
-								<img class="products__main-image" src="./images/product-05-cover.jpg" alt="Product 05">
-		
+								<img class="products__main-image" src="./images/26.jpg" alt="Product 01">
 								<div class="products__gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-05/01.jpg" alt="Product 05 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-05/02.jpg" alt="Product 05 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-05/03.jpg" alt="Product 05 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-05/04.jpg" alt="Product 05 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-05/05.jpg" alt="Product 05 gallery">
-									<img class="products__gallery-item" src="./images/product-05-cover.jpg" alt="Product 05 gallery">
+									<img class="products__gallery-item" src="./images/26.jpg" alt="Product 01 gallery">
 								</div>
 							</div>
-							<button type="button" class="products__cta button">Add to cart</button>
+							<nav class="nav-bottom">
+								<span class="soldout">sould out</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
 						</li>
 
-						<li class="products__item" data-id="product-06" data-price="8" data-name="Product 06" data-cover="./images/product-06-cover.jpg">
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
 							<div class="products__images">
-								<img class="products__main-image" src="./images/product-06-cover.jpg" alt="Product 06">
-		
+								<img class="products__main-image" src="./images/29.jpg" alt="Product 01">
 								<div class="products__gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-06/01.jpg" alt="Product 06 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-06/02.jpg" alt="Product 06 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-06/03.jpg" alt="Product 06 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-06/04.jpg" alt="Product 06 gallery">
-									<img class="products__gallery-item" src="./images/galleries/product-06/05.jpg" alt="Product 06 gallery">
-									<img class="products__gallery-item" src="./images/product-06-cover.jpg" alt="Product 06 gallery">
+									<img class="products__gallery-item" src="./images/29.jpg" alt="Product 01 gallery">
 								</div>
 							</div>
-							<button type="button" class="products__cta button">Add to cart</button>
+							<nav class="nav-bottom">
+								<span class="soldout">sould out</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
 						</li>
+						
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
+							<div class="products__images">
+								<img class="products__main-image" src="./images/25.jpg" alt="Product 01">
+								<div class="products__gallery">
+									<img class="products__gallery-item" src="./images/25.jpg" alt="Product 01 gallery">
+								</div>
+							</div>
+							<nav class="nav-bottom">
+								<span class="soldout">sould out</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
+						</li>
+						
+
+						
 					</ul>
 				</div>
+
+				<div class="banner-marquee">
+					<div class="text-marquee">
+						<div class="text-single">
+						  <span class="text js-text">vingtdeuxxxii</span>
+						  <span class="text js-text">عشريني وعشرون</span>
+						  <span class="text js-text">vingtdeuxxxii</span>
+						  <span class="text js-text">iskay chunka</span>
+						  <span class="text js-text">кокло кок</span>
+						  <span class="text js-text">스물두시.2020年</span>
+						</div>
+					  </div>
+					<div class="imgWrapper">
+						<img src="./images/cover.png" alt="">
+					</div>
+					<div class="text-marquee">
+						<div class="text-single">
+						  <span class="text js-text">vingtdeuxxxii</span>
+						  <span class="text js-text">عشريني وعشرون</span>
+						  <span class="text js-text">vingtdeuxxxii</span>
+						  <span class="text js-text">iskay chunka</span>
+						  <span class="text js-text">кокло кок</span>
+						  <span class="text js-text">스물두시.2020年</span>
+						</div>
+					  </div>
+					  
+					</div>
+					
+				</div>
+
+
+				<div class="heading">
+					<h2>Last Drop</h2>
+					</div>
+
+				<div class="products">
+					<ul class="products__list">
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
+							<div class="products__images">
+								<img class="products__main-image" src="./images/3.jpg" alt="Product 01">
+								<div class="products__gallery">
+									<img class="products__gallery-item" src="./images/3.jpg" alt="Product 01 gallery">
+								</div>
+							</div>
+							<nav class="nav-bottom">
+								<span class="available">available</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
+						</li>
+
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
+							<div class="products__images">
+								<img class="products__main-image" src="./images/10.jpg" alt="Product 01">
+								<div class="products__gallery">
+									<img class="products__gallery-item" src="./images/10.jpg" alt="Product 01 gallery">
+								</div>
+							</div>
+							<nav class="nav-bottom">
+								<span class="available">available</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
+						</li>
+						
+						<li class="products__item" data-id="product-02" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
+							<div class="products__images">
+								<img class="products__main-image" src="./images/5.jpg" alt="Product 01">
+								<div class="products__gallery">
+									<img class="products__gallery-item" src="./images/5.jpg" alt="Product 01 gallery">
+								</div>
+							</div>
+							<nav class="nav-bottom">
+								<span class="available">available</span>>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
+						</li>
+
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
+							<div class="products__images">
+								<img class="products__main-image" src="./images/12.jpg" alt="Product 01">
+								<div class="products__gallery">
+									<img class="products__gallery-item" src="./images/12.jpg" alt="Product 01 gallery">
+								</div>
+							</div>
+							<nav class="nav-bottom">
+								<span class="available">available</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
+						</li>
+
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
+							<div class="products__images">
+								<img class="products__main-image" src="./images/4.jpg" alt="Product 01">
+								<div class="products__gallery">
+									<img class="products__gallery-item" src="./images/4.jpg" alt="Product 01 gallery">
+								</div>
+							</div>
+							<nav class="nav-bottom">
+								<span class="soldout">sould out</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
+						</li>
+						
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
+							<div class="products__images">
+								<img class="products__main-image" src="./images/11.jpg" alt="Product 01">
+								<div class="products__gallery">
+									<img class="products__gallery-item" src="./images/11.jpg" alt="Product 01 gallery">
+								</div>
+							</div>
+							<nav class="nav-bottom">
+								<span class="available">available</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
+						</li>
+
+
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
+							<div class="products__images">
+								<img class="products__main-image" src="./images/26.jpg" alt="Product 01">
+								<div class="products__gallery">
+									<img class="products__gallery-item" src="./images/26.jpg" alt="Product 01 gallery">
+								</div>
+							</div>
+							<nav class="nav-bottom">
+								<span class="available">available</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
+						</li>
+
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
+							<div class="products__images">
+								<img class="products__main-image" src="./images/29.jpg" alt="Product 01">
+								<div class="products__gallery">
+									<img class="products__gallery-item" src="./images/29.jpg" alt="Product 01 gallery">
+								</div>
+							</div>
+							<nav class="nav-bottom">
+								<span class="available">available</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
+						</li>
+						
+						<li class="products__item" data-id="product-01" data-price="15" data-name="Product 01" data-cover="./images/1.jpg">
+							<div class="products__images">
+								<img class="products__main-image" src="./images/25.jpg" alt="Product 01">
+								<div class="products__gallery">
+									<img class="products__gallery-item" src="./images/25.jpg" alt="Product 01 gallery">
+								</div>
+							</div>
+							<nav class="nav-bottom">
+								<span class="available">available</span>
+								<button type="button" class="products__cta button">Add to cart</button>
+							</nav>
+						</li>
+						
+
+						
+					</ul>
+				</div>
+
+				<div class="banner-marquee">
+				
+				<div class="text-marquee">
+					<div class="text-single">
+					  <span class="text js-text">vingtdeuxxxii</span>
+					  <span class="text js-text">عشريني وعشرون</span>
+					  <span class="text js-text">vingtdeuxxxii</span>
+					  <span class="text js-text">iskay chunka</span>
+					  <span class="text js-text">кокло кок</span>
+					  <span class="text js-text">스물두시.2020年</span>
+					</div>
+				  </div>
+				  
+				</div>
+				<div class="imgWrapper">
+					<img src="./images/cover2.jpg" alt="">
+				</div>
+				<div class="text-marquee">
+					<div class="text-single">
+					  <span class="text js-text">vingtdeuxxxii</span>
+					  <span class="text js-text">عشريني وعشرون</span>
+					  <span class="text js-text">vingtdeuxxxii</span>
+					  <span class="text js-text">iskay chunka</span>
+					  <span class="text js-text">кокло кок</span>
+					  <span class="text js-text">스물두시.2020年</span>
+					</div>
+				  </div>
 			</section>
 
 			<aside class="cart">
@@ -161,8 +457,56 @@
 					</div>
 				</div>
 			</aside>
-		</main>
 
+			
+		<footer>
+			<video width="1920" height="1080" autoplay="" muted="" loop="" playsinline="">
+				<source src="./videos/footer.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+		</footer>
+			
+		</main>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+		<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.min.js"></script>
 		<script type="module" src="/js/main.js"></script>
+		<script>
+			let eventCount = 0;
+
+			// Function to handle the event and increment count
+			function handleEvent(event) {
+			eventCount++;
+			console.log(`Event triggered: ${event.type}, count: ${eventCount}`);
+			if (eventCount === 3) {
+				console.log("over");
+				document.querySelector('main').classList.add('is-scroll')
+				removeEventListeners(); // Stop listening after reaching the count
+			}
+			}
+
+			// Function to add event listeners
+			function addEventListeners() {
+			window.addEventListener("wheel", handleEvent); // Replaces "mousewheel"
+			window.addEventListener("touchstart", handleEvent);
+			window.addEventListener("touchmove", handleEvent);
+			window.addEventListener("scroll", handleEvent);
+			}
+
+			// Function to remove event listeners
+			function removeEventListeners() {
+			window.removeEventListener("wheel", handleEvent);
+			window.removeEventListener("touchstart", handleEvent);
+			window.removeEventListener("touchmove", handleEvent);
+			window.removeEventListener("scroll", handleEvent);
+			}
+
+			// Add the listeners on page load
+			addEventListeners();
+			
+		</script>
+	
 	</body>
 </html>

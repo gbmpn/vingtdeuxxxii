@@ -3,8 +3,9 @@
 
   &__list {
     width: 100%;
+    gap: 1px;
+    background: white;
 
-    gap: 2vh;
 
     @media(min-width: 768px) {
       display: grid;
@@ -21,12 +22,11 @@
   &__item {
     display: flex;
     flex-direction: column;
-    gap: 2vh;
   }
 
   &__images {
     position: relative;
-    height: 32vh;
+    height: 73vh;
   }
 
   &__main-image {

@@ -1,9 +1,14 @@
 .cart-button {
   position: relative;
-  
+  position: fixed;
+  cursor: pointer;
+  justify-self: end;
+  right: 20px;
+  z-index: 20;
+  top: 20px;
   pointer-events: all;
   cursor: pointer;
-
+  color: white;
   justify-self: end;
 
   @media (max-width: 767px) {
