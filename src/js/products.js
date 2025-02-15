@@ -27,7 +27,7 @@ export default class Products {
         this.otherProducts = this.products.filter((prod, index) => index !== i );
         this.currentGallery = [...this.currentProduct.querySelectorAll('.products__gallery-item')];
         this.isTopRow = window.innerWidth > 768 && i < 3;
-
+        console.log('product action')
         this.addToCart();
       })
     })

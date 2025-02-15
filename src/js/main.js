@@ -12,9 +12,225 @@ import Slider from './slider';
 
 
 
+
 window.addEventListener('load', async () => {
-  new Products();
+ 
   new Slider();
+  
+  const fetchCollectionsAndProducts = async () => {
+    const endpoint = `https://ri1ysg-yt.myshopify.com/api/2023-07/graphql.json`;
+    const storefrontAccessToken = "5a1b261e3850235223c65a48cb1b3be3"; // Replace with your token
+  
+    const query = `
+{
+  collections(first: 5) {
+    edges {
+      node {
+        id
+        title
+        products(first: 10) {
+          edges {
+            node {
+              id
+              title
+              priceRange {
+                minVariantPrice {
+                  amount
+                }
+              }
+              images(first: 1) {
+                edges {
+                  node {
+                    src
+                  }
+                }
+              }
+              availableForSale
+            }
+          }
+        }
+        metafield(namespace: "custom", key: "banner") {
+          reference {
+            ... on MediaImage {
+              image {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+  
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Shopify-Storefront-Access-Token": storefrontAccessToken,
+        },
+        body: JSON.stringify({ query }),
+      });
+  
+      const data = await response.json();
+      if (response.ok) {
+        populateCollections(data.data.collections.edges);
+        new Products();
+      } else {
+        console.error("Error fetching data:", data.errors);
+      }
+    } catch (error) {
+      console.error("Fetch error:", error.message);
+    }
+  };
+  
+  // Function to populate collections and products
+  const populateCollections = (collections) => {
+    const contentWrapper = document.querySelector('.content')
+  
+    collections.forEach((collection) => {
+      const { title, products, metafield } = collection.node;
+  
+      // Extract banner image URL
+    const bannerImageSrc = metafield?.reference?.image?.url || "./images/cover.png";
+        console.log(bannerImageSrc)
+  
+      // Add a title for the collection, wrapped in <div class="heading">
+      const heading = document.createElement("div");
+      heading.classList.add("heading");
+  
+      const collectionTitle = document.createElement("h2");
+      collectionTitle.textContent = title;
+      heading.appendChild(collectionTitle);
+      contentWrapper.appendChild(heading);
+  
+      // Create a wrapper div for the product list
+      const productsWrapper = document.createElement("div");
+      productsWrapper.classList.add("products");
+
+      
+      // Create a product list for the collection
+      const productList = document.createElement("ul");
+      productList.classList.add("products-list");
+      productList.classList.add("products__list");
+  
+      products.edges.forEach((product) => {
+        const { id, title, priceRange, images, availableForSale } = product.node;
+  
+        // Create list item for each product
+        const productItem = document.createElement("li");
+        productItem.classList.add("products__item");
+        productItem.setAttribute("data-id", id);
+        productItem.setAttribute("data-price", priceRange.minVariantPrice.amount);
+        productItem.setAttribute("data-name", title);
+        productItem.setAttribute("data-cover", images.edges[0]?.node.src);
+  
+        // Create product image section
+        const productImages = document.createElement("div");
+        productImages.classList.add("products__images");
+        const mainImage = document.createElement("img");
+        mainImage.classList.add("products__main-image");
+        mainImage.setAttribute("src", images.edges[0]?.node.src || "./images/default.jpg");
+        mainImage.setAttribute("alt", title);
+  
+        const gallery = document.createElement("div");
+        gallery.classList.add("products__gallery");
+        const galleryImage = document.createElement("img");
+        galleryImage.classList.add("products__gallery-item");
+        galleryImage.setAttribute("src", images.edges[0]?.node.src || "./images/default.jpg");
+        galleryImage.setAttribute("alt", `${title} gallery`);
+  
+        gallery.appendChild(galleryImage);
+        productImages.appendChild(mainImage);
+        productImages.appendChild(gallery);
+  
+        // Create bottom navigation with add to cart button and stock status
+        const navBottom = document.createElement("nav");
+        navBottom.classList.add("nav-bottom");
+  
+        const soldOutLabel = document.createElement("span");
+        soldOutLabel.classList.add("available");
+        soldOutLabel.textContent = availableForSale ? "" : "Sold Out";
+  
+        const addToCartButton = document.createElement("button");
+        addToCartButton.type = "button";
+        addToCartButton.classList.add("products__cta", "button");
+        addToCartButton.textContent = "Add to cart";
+  
+        navBottom.appendChild(soldOutLabel);
+        navBottom.appendChild(addToCartButton);
+  
+        // Append all elements to the product item
+        productItem.appendChild(productImages);
+        productItem.appendChild(navBottom);
+  
+        // Add the product item to the product list
+        productList.appendChild(productItem);
+        
+      });
+  
+      // Wrap the product list in the .products div
+      productsWrapper.appendChild(productList);
+  
+      // Append the .products div to the collection container
+      contentWrapper.appendChild(productsWrapper);
+  
+    const customSection = document.createElement("div");
+    customSection.classList.add("custom-section");
+    contentWrapper.appendChild(productsWrapper);
+
+    // Create and append the .banner-marquee div **after each** .products div
+    const bannerMarquee = document.createElement("div");
+    bannerMarquee.classList.add("banner-marquee");
+    bannerMarquee.innerHTML = `
+        <div class="text-marquee">
+            <div class="text-single">
+                <span class="text js-text">vingtdeuxxxii</span>
+                <span class="text js-text">عشريني وعشرون</span>
+                <span class="text js-text">vingtdeuxxxii</span>
+                <span class="text js-text">iskay chunka</span>
+                <span class="text js-text">кокло кок</span>
+                <span class="text js-text">스물두시.2020年</span>
+            </div>
+        </div>
+        <div class="imgWrapper">
+            <img src="${bannerImageSrc}" alt="">
+        </div>
+        <div class="text-marquee">
+            <div class="text-single">
+                <span class="text js-text">vingtdeuxxxii</span>
+                <span class="text js-text">عشريني وعشرون</span>
+                <span class="text js-text">vingtdeuxxxii</span>
+                <span class="text js-text">iskay chunka</span>
+                <span class="text js-text">кокло кок</span>
+                <span class="text js-text">스물두시.2020年</span>
+            </div>
+        </div>
+    `;
+
+    // Append the banner marquee **after** each .products div
+    contentWrapper.appendChild(bannerMarquee);
+
+    let loops = gsap.utils.toArray('.text-single').map((line, i) => {
+      const links = line.querySelectorAll(".js-text");
+      return horizontalLoop(links, {
+        repeat: -1, 
+        speed: 1.5 + i * 0.5,
+        reversed: false,
+        paddingRight: parseFloat(gsap.getProperty(links[0], "marginRight", "px"))
+      });
+    });
+    });
+  };
+  
+  // Call the function to fetch and display collections and products
+  fetchCollectionsAndProducts();
+  
+  // 
+  
 
   const images = [...document.querySelectorAll('img')];
 
@@ -22,15 +238,7 @@ window.addEventListener('load', async () => {
     document.body.classList.remove('loading');
   })
   
-  let loops = gsap.utils.toArray('.text-single').map((line, i) => {
-    const links = line.querySelectorAll(".js-text");
-    return horizontalLoop(links, {
-      repeat: -1, 
-      speed: 1.5 + i * 0.5,
-      reversed: false,
-      paddingRight: parseFloat(gsap.getProperty(links[0], "marginRight", "px"))
-    });
-  });
+  
 
   let currentScroll = 0;
   let scrollDirection = 1;
@@ -118,4 +326,5 @@ window.addEventListener('load', async () => {
   }
     return tl;
   }
+   
 });
