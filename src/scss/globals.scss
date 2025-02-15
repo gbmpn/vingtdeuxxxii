@@ -466,26 +466,3 @@ footer {
     transform: scale(1.5) translateY(-15%);
   }
 }
-
-// afterfooter
-#interactive__homepage {
-	pointer-events: none;
-	background-color: transparent;
-	-webkit-user-select: none; /* Safari */
-	-moz-user-select: none; /* Firefox */
-	-ms-user-select: none; /* IE10+/Edge */
-	user-select: none; /* Standard */
-	position: relative;
-  width: 100%;
-  height: 50vh;
-	top:0;
-	left: 0;
-}
-
-#interactive__text {
-	display: none;
-}
-
-#interactive__images {
-	display: none;
-}
