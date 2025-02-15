@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Shopping Cart Animation | Codrops</title>
+		<title>vingtdeuxxxii store</title>
 		<meta name="description" content="An engaging shopping cart animation concept where items animate to the cart in an interesting way." />
 		<meta name="keywords" content="shopping cart, animation, gsap" />
 		<meta name="author" content="Andrea Biason for Codrops" />
@@ -13,8 +13,30 @@
 		<script>document.documentElement.className="js";</script>
 	</head>
 	<body class="loading">
+		<div class="navContainer">
+			<nav class="navigation">
+				<div class="navTrigger">
+					<span>NAVIGATION</span>
+					<span class="icon">
+						<span></span><span></span>
+					</span>
+				</div>
+				<div class="imgWrapper">
+					<img src="./images/home/1.jpg">
+				</div>
+				<ul>
+					<li><a href="#">About </a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M17 13H8.414l4.293-4.293-1.414-1.414L4.586 14l6.707 6.707 1.414-1.414L8.414 15H19V4h-2v9z"/></svg></li>
+					<li><a href="#">Blog </a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M17 13H8.414l4.293-4.293-1.414-1.414L4.586 14l6.707 6.707 1.414-1.414L8.414 15H19V4h-2v9z"/></svg></li>
+					<li><a href="#">Contact </a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M17 13H8.414l4.293-4.293-1.414-1.414L4.586 14l6.707 6.707 1.414-1.414L8.414 15H19V4h-2v9z"/></svg></li>
+					<li><a href="#">Terms </a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M17 13H8.414l4.293-4.293-1.414-1.414L4.586 14l6.707 6.707 1.414-1.414L8.414 15H19V4h-2v9z"/></svg></li>
+					<li><a href="#">Legal </a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M17 13H8.414l4.293-4.293-1.414-1.414L4.586 14l6.707 6.707 1.414-1.414L8.414 15H19V4h-2v9z"/></svg></li>
+				</ul>
+			</nav>
+		</div>
 		<main>
+			
 			<span class="noise"></span>
+			
 			<header>
 				<a href="/" class="logo">
 					<img src="./images/logo.png">
@@ -115,11 +137,13 @@
 					
 				  </div>
 			</div>
+
 			<section class="content">
 
 				
 
 			</section>
+
 			<aside class="cart">
 				<div class="cart__bg"></div>
 		
@@ -142,7 +166,11 @@
 					</div>
 				</div>
 			</aside>
+			<div class="prefooter" data-gr-c-s-loaded="true" style="overflow: hidden; margin: 0px; padding: 0px; top: 0px; left: 0px; right: 0px; bottom: 0px; position: fixed;" cz-shortcut-listen="true"></div>
+				<div id="interactive__homepage"><canvas width="750" height="1624" data-pixel-ratio="2" style="display: block; top: 0px; left: 0px; right: 0px; bottom: 0px; position: fixed; width: 375px; height: 812px;"></canvas></div>
 
+				<div id="interactive__text">
+			</div>
 			
 		<footer>
 			<video width="1920" height="1080" autoplay="" muted="" loop="" playsinline="">
@@ -150,6 +178,9 @@
 				Your browser does not support the video tag.
 			</video>
 		</footer>
+
+			
+		
 			
 		</main>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -168,6 +199,10 @@
 			if (eventCount === 3) {
 				console.log("over");
 				document.querySelector('main').classList.add('is-scroll')
+				setTimeout(() => {
+					document.querySelector('.navContainer').classList.add('is-scroll')
+				}, 1000)
+
 				removeEventListeners(); // Stop listening after reaching the count
 			}
 			}
@@ -190,6 +225,11 @@
 
 			// Add the listeners on page load
 			addEventListeners();
+
+
+
+			// gravity 
+			
 			
 		</script>
 	
