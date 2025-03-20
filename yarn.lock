@@ -2147,11 +2147,6 @@ gsap@./gsap-bonus.tgz:
   version "3.12.3"
   resolved "./gsap-bonus.tgz#edf7e8648c7b3586524aff0cf3a82d99582d26c6"
 
-gsap@^3.12.7:
-  version "3.12.7"
-  resolved "https://registry.npmjs.org/gsap/-/gsap-3.12.7.tgz"
-  integrity sha512-V4GsyVamhmKefvcAKaoy0h6si0xX7ogwBoBSs2CTJwt7luW0oZzC0LhdkyuKV8PJAXr7Yaj8pMjCKD4GJ+eEMg==
-
 has-ansi@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/has-ansi/-/has-ansi-2.0.0.tgz#34f5049ce1ecdf2b0649af3ef24e45ed35416d91"
