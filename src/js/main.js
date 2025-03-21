@@ -11,6 +11,7 @@ import Slider from './slider';
 
 import Draggable from 'gsap/Draggable'
 import InertiaPlugin from 'gsap/InertiaPlugin'
+import { AlphaFormat } from 'three/src/constants.js';
 
 
 
@@ -131,6 +132,9 @@ window.addEventListener('load', async () => {
         productItem.setAttribute("data-name", title);
         productItem.setAttribute("data-cover", images.edges[0]?.node.src);
   
+        productItem.addEventListener("click", () => {
+          alert(":;;((")
+        });
         // Create product image section
         const productImages = document.createElement("div");
         productImages.classList.add("products__images");
@@ -188,7 +192,7 @@ window.addEventListener('load', async () => {
     // Create and append the .banner-marquee div **after each** .products div
     const bannerMarquee = document.createElement("div");
     bannerMarquee.classList.add("banner-marquee");
-    bannerMarquee.innerHTML = `
+    bannerMarquee.innerHTML = `´
         <div class="text-marquee">
             <div class="text-single">
                 <span class="text js-text">vingtdeuxxxii</span>
@@ -365,5 +369,6 @@ window.addEventListener('load', async () => {
   //     scrub: 1, // Smooth scrolling effect
   //   },
   // });
-   
+
+
 });
