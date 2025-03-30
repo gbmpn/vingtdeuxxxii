@@ -14,14 +14,17 @@
       justify-content: space-between;
     }
     @media(max-width: 767px) {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   &__item {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    height: 50vh;
+    position: relative;
   }
 
   &__images {
@@ -62,4 +65,21 @@
       z-index: 7 - $i;
     }
   }
+}
+
+.products__description,
+.products__meta,
+.products__tag,
+.swiper-button-prev,
+.swiper-button-next {
+  display:none !important;
+}
+
+.products__price {
+  position: absolute;
+  left : 16px;
+  bottom: 16px;
+  font-size: 42px;
+  color: white;
+  z-index:999;
 }

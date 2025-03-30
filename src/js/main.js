@@ -8,9 +8,13 @@ import { preloadImages } from './utils';
 import Products from './products';
 import Slider from './slider';
 
-import Draggable from 'gsap/Draggable'
-import InertiaPlugin from 'gsap/InertiaPlugin'
-import { AlphaFormat } from 'three/src/constants.js';
+import Draggable from 'gsap/Draggable';
+import InertiaPlugin from 'gsap/InertiaPlugin';
+
+import Swiper from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 gsap.registerPlugin(Draggable, InertiaPlugin);
 
@@ -40,6 +44,7 @@ window.addEventListener('load', async () => {
               priceRange {
                 minVariantPrice {
                   amount
+                  currencyCode
                 }
               }
               images(first: 5) {  
@@ -82,6 +87,8 @@ window.addEventListener('load', async () => {
       if (response.ok) {
         populateCollections(data.data.collections.edges);
         new Products();
+        // Initialize Swiper for all galleries after content is populated
+        initSwipers();
       } else {
         console.error("Error fetching data:", data.errors);
       }
@@ -101,6 +108,7 @@ window.addEventListener('load', async () => {
       const heading = document.createElement("div");
       heading.classList.add("heading");
 
+      
       const collectionTitle = document.createElement("h2");
       collectionTitle.textContent = title;
       heading.appendChild(collectionTitle);
@@ -123,7 +131,8 @@ window.addEventListener('load', async () => {
         productItem.setAttribute("data-cover", images.edges[0]?.node.src);
 
         productItem.addEventListener("click", () => {
-          alert("Product Clicked!");
+        //
+        //   alert("Product Clicked!");
         });
 
         // Product Image Section
@@ -135,25 +144,52 @@ window.addEventListener('load', async () => {
         mainImage.setAttribute("src", images.edges[0]?.node.src || "./images/default.jpg");
         mainImage.setAttribute("alt", title);
 
-        const gallery = document.createElement("div");
-        gallery.classList.add("products__gallery");
+        // Product Horizontal Gallery using Swiper.js
+        const swiperContainer = document.createElement("div");
+        swiperContainer.classList.add("swiper-container", "products__gallery-swiper");
 
-        images.edges.forEach((imgEdge, index) => {
-          if (index > 0) {
-            const galleryImage = document.createElement("img");
-            galleryImage.classList.add("products__gallery-item");
-            galleryImage.setAttribute("src", imgEdge.node.src);
-            galleryImage.setAttribute("alt", `${title} gallery`);
-            gallery.appendChild(galleryImage);
-          }
+        const swiperWrapper = document.createElement("div");
+        swiperWrapper.classList.add("swiper-wrapper");
+
+        // Loop through all images to create slides
+        images.edges.forEach((imgEdge) => {
+          const slide = document.createElement("div");
+          slide.classList.add("swiper-slide");
+          const img = document.createElement("img");
+          img.classList.add("products__gallery-item");
+          img.setAttribute("src", imgEdge.node.src);
+          img.setAttribute("alt", `${title} gallery`);
+          slide.appendChild(img);
+          swiperWrapper.appendChild(slide);
         });
 
+        swiperContainer.appendChild(swiperWrapper);
+
+        // Add pagination and navigation controls
+        const pagination = document.createElement("div");
+        pagination.classList.add("swiper-pagination");
+        swiperContainer.appendChild(pagination);
+
+        const btnNext = document.createElement("div");
+        btnNext.classList.add("swiper-button-next");
+        swiperContainer.appendChild(btnNext);
+
+        const btnPrev = document.createElement("div");
+        btnPrev.classList.add("swiper-button-prev");
+        swiperContainer.appendChild(btnPrev);
+
+        // Append the main image and the Swiper gallery
         productImages.appendChild(mainImage);
-        productImages.appendChild(gallery);
+        productImages.appendChild(swiperContainer);
 
         // Product Info
         const productTitle = document.createElement("h3");
         productTitle.textContent = title;
+
+        // Price Tag visible on first level
+        const productPrice = document.createElement("p");
+        productPrice.classList.add("products__price");
+        productPrice.textContent = `${priceRange.minVariantPrice.currencyCode} ${priceRange.minVariantPrice.amount}`;
 
         const productDescription = document.createElement("p");
         productDescription.classList.add("products__description");
@@ -183,7 +219,9 @@ window.addEventListener('load', async () => {
         navBottom.appendChild(soldOutLabel);
         navBottom.appendChild(addToCartButton);
 
+        // Append elements to product item
         productItem.appendChild(productTitle);
+        productItem.appendChild(productPrice); // Price tag visible immediately below the title
         productItem.appendChild(productDescription);
         productItem.appendChild(productMeta);
         productItem.appendChild(productTags);
@@ -195,6 +233,25 @@ window.addEventListener('load', async () => {
 
       productsWrapper.appendChild(productList);
       contentWrapper.appendChild(productsWrapper);
+    });
+  };
+
+  // Initialize all Swiper galleries after products are added
+  const initSwipers = () => {
+    const swiperContainers = document.querySelectorAll('.products__gallery-swiper');
+    swiperContainers.forEach((container) => {
+      new Swiper(container, {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+          el: container.querySelector('.swiper-pagination'),
+          clickable: true,
+        },
+        navigation: {
+          nextEl: container.querySelector('.swiper-button-next'),
+          prevEl: container.querySelector('.swiper-button-prev'),
+        },
+      });
     });
   };
 
@@ -220,5 +277,4 @@ window.addEventListener('load', async () => {
     throwProps: true,
     edgeResistance: 0.8,
   });
-
 });
