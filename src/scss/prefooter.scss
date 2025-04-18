@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+/* NORMALIZE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* NORMALIZE */
+
+body {
+    background: #121212;
+    color: #F1F1F1;
+    font: 500 normal 22px/1.3 'Inter', sans-serif;
+}
+.mwg_effect041 {
+    text-transform: uppercase;
+    color: #BAB8B9;
+    min-height: 100vh;
+}
+.mwg_effect041 .header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(185, 185, 185, 0.3);
+    padding: 30px;
+}
+.mwg_effect041 .header > * {
+    flex: 1;
+}
+.mwg_effect041 .header p {
+    font-size: 14px;
+    line-height: 1;
+}
+.mwg_effect041 .header .col1 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.mwg_effect041 .header .col2 {
+    text-align: center;
+}
+.mwg_effect041 .header .col3 {
+    text-align: right;
+}
+.mwg_effect041 .item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    width: max-content;
+    font: 500 normal 6.6vw / 0.9 'Inter', sans-serif;
+    letter-spacing: -0.06em;
+}
+.mwg_effect041 ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3vw 0 0;
+}
+.mwg_effect041 .item.hovered span {
+    pointer-events: none;
+}
+.mwg_effect041 .hidden {
+    pointer-events: none;
+    position: absolute;
+    bottom: 100%;
+}
+.mwg_effect041 .item span {
+    display: inline-block;
+    will-change: transform;
+}
+
+@media (max-width: 768px) {
+    .mwg_effect041 .header .col2,
+    .mwg_effect041 .header .col3 {
+        display: none;
+    }
+    .mwg_effect041 ul {
+        padding: 30px 0 0;
+    }
+    .mwg_effect041 .item {
+        font-size: 36px;
+    }
+}

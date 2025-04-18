@@ -132,9 +132,10 @@ window.addEventListener('load', async () => {
         productItem.setAttribute("data-name", title);
         productItem.setAttribute("data-cover", images.edges[0]?.node.src);
   
-        productItem.addEventListener("click", () => {
-          alert(":;;((")
-        });
+        // productItem.addEventListener("click", () => {
+        //   alert('expad'))
+        //   productItem.classList.toggle('is-expanded');
+        // });
         // Create product image section
         const productImages = document.createElement("div");
         productImages.classList.add("products__images");

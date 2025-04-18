@@ -14,14 +14,27 @@
       justify-content: space-between;
     }
     @media(max-width: 767px) {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   &__item {
     display: flex;
     flex-direction: column;
+    * {
+      color: black;
+    }
+  }
+  h3
+  &__description,
+  &__meta,
+  &__tags {
+    display: none !important;
+  }
+
+  &__item.active {
+    grid-column: span 2;
   }
 
   &__images {
