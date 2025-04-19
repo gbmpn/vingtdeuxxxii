@@ -83,7 +83,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
-
+    overflow-y: scroll;
     width: 600px;
     height: calc(100vh - 40px);
 
@@ -246,4 +246,10 @@
       font-size: 9px;
     }
   }
+}
+
+.cart-checkout-button {
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }

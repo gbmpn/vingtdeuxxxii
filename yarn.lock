@@ -3324,6 +3324,11 @@ shopify-api-node@^3.14.2:
     qs "^6.5.2"
     stopcock "^1.0.0"
 
+shopify-buy@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/shopify-buy/-/shopify-buy-3.0.4.tgz#25e2728a4de65afe51bfc31a54edc90a997ce610"
+  integrity sha512-lDdX/43rAAs/3bQFbqTNrS4d50WDpqY60KvEEVTKyJXrQ+ZXX45ok3vC0iOisEyDAWN2/2HYXc3Iu45Rxkd4+w==
+
 side-channel-list@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/side-channel-list/-/side-channel-list-1.0.0.tgz"
