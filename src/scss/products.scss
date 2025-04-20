@@ -29,7 +29,7 @@
 
   &__images {
     position: relative;
-    height: 73vh;
+    height: 69vh;
   }
 
   &__main-image {
@@ -136,13 +136,19 @@ h3 {
       cursor: pointer;
     }
   }
+  .modal__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+  }
   h3 {
     color: white;
     font-size: 24px;
     margin: 0;
     padding: 16px;
     position: absolute;
-    left: 52%;
+    left: 16px;
     z-index: 100;
     top: 0;
   }
@@ -152,19 +158,76 @@ h3 {
     font-size: 16px;
     line-height: 1.5;
   }
-  .products__main-image {
-    width: 50%;
-    float: right;
+
+  .content {
+    color: white;
+    padding: 24px;
+    display: block;
+    width: 100%;
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+    }
+  }
+
+  .products__item {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    height: 84vh;
     position: relative;
-    margin-top: -25vh;
+  }
+ 
+  .products__images{
+    position: absolute;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    top: 0;
+    width: 50%;
+  }
+  .products__main-image {
+    width: 100%;
+    position: relative;
+    margin-top: 0;
+    display: none;
+  }
+  .swiper-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    // margin-top: 25vh;
+    overflow: visible;
+    .swiper-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+    }
+
+    .swiper-slide {
+      width: 100% !important;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
   }
   .products__price {
-    left: 52%;
+    left: 24px;
   }
   .products__description {
-    position: absolute;
+    position: relative;
     display: block !important;
-    top: 75vh;
+    top: 0;
     left: 50%;
     width: 48%;
     height: auto;
@@ -178,24 +241,5 @@ h3 {
   .nav-bottom {
     display: none;
   }
-  .swiper-container {
-    position: relative;
-    width: 50%;
-    overflow: visible;
-    margin-top: 25vh;
-    .swiper-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .swiper-slide {
-      height: auto;
-      width: 100% !important;
-    }
-    img {
-      height: 100%;
-    }
-
-  }
+ 
 }

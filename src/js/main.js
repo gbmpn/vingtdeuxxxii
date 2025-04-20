@@ -110,6 +110,7 @@ window.addEventListener('load', async () => {
         // Initialize Swiper for all galleries after content is populated
         initSwipers();
         modalZoom();
+        modalNav();
       } else {
         console.error("Error fetching data:", data.errors || 'Unknown API error');
       }
@@ -260,7 +261,7 @@ window.addEventListener('load', async () => {
 
         const availabilityLabel = document.createElement("span");
         availabilityLabel.classList.add("available");
-        availabilityLabel.textContent = isAvailable ? "Available" : "Sold Out";
+        availabilityLabel.textContent = isAvailable ? "Disponible" : "Sold Out";
         // Add class based on availability for styling
         availabilityLabel.classList.toggle("available--out-of-stock", !isAvailable);
 
@@ -268,7 +269,7 @@ window.addEventListener('load', async () => {
         const addToCartButton = document.createElement("button");
         addToCartButton.type = "button";
         addToCartButton.classList.add("products__cta", "button");
-        addToCartButton.textContent = "Add to cart";
+        addToCartButton.textContent = "Acheter";
 
         // --- Disable button if unavailable or no variant ID ---
         if (!isAvailable || !variantId) {
@@ -314,17 +315,10 @@ window.addEventListener('load', async () => {
       }
 
       new Swiper(container, {
-        loop: container.querySelectorAll('.swiper-slide').length > 1, // Enable loop only if more than one slide
+        // loop: container.querySelectorAll('.swiper-slide').length > 1, // Enable loop only if more than one slide
+        loop: false,
         slidesPerView: 1,
         spaceBetween: 10,
-        pagination: {
-          el: paginationEl,
-          clickable: true,
-        },
-        navigation: {
-          nextEl: nextEl,
-          prevEl: prevEl,
-        },
       });
     });
   };
@@ -332,9 +326,9 @@ window.addEventListener('load', async () => {
   // --- Modal Zoom Function (ensure it works with new structure) ---
   const modalZoom = () => {
     const products__items = document.querySelectorAll('.products__item');
-    const modal = document.querySelector('.modal');
-    const modalInner = document.querySelector('.modal__inner');
-    const closeModal = document.querySelector('.modal__close');
+    const modal = document.querySelector('#productModal');
+    const modalInner = modal.querySelector('.modal__inner');
+    const closeModal = modal.querySelector('.modal__close');
 
     if (!modal || !modalInner || !closeModal) {
         console.error("Modal elements (.modal, .modal__inner, .modal__close) not found.");
@@ -349,33 +343,17 @@ window.addEventListener('load', async () => {
         }
 
         modal.classList.add('is-open');
+        const galleryItems = item.querySelectorAll('.products__gallery-item');
+        galleryItems.forEach((galleryItem) => {
+          galleryItem.style.transform= "none";
+          galleryItem.style.visibility= "visible";
+          galleryItem.style.opacity = 1;
+        });
         // Clone the item's content to avoid issues with Swiper re-initialization
         const itemContentClone = item.cloneNode(true);
         // Remove potentially problematic data attributes or IDs if cloning causes issues
         modalInner.innerHTML = ''; // Clear previous content
         modalInner.appendChild(itemContentClone);
-
-        // Re-initialize Swiper for the cloned content inside the modal
-        const modalSwiperContainer = modalInner.querySelector('.products__gallery-swiper');
-        if (modalSwiperContainer) {
-            // Ensure unique classes or IDs if needed, or destroy previous Swiper instances
-            // For simplicity, let's just re-initialize. Might need cleanup if modals are reused heavily.
-            new Swiper(modalSwiperContainer, {
-                loop: modalSwiperContainer.querySelectorAll('.swiper-slide').length > 1,
-                slidesPerView: 1,
-                spaceBetween: 10,
-                pagination: {
-                el: modalSwiperContainer.querySelector('.swiper-pagination'),
-                clickable: true,
-                },
-                navigation: {
-                nextEl: modalSwiperContainer.querySelector('.swiper-button-next'),
-                prevEl: modalSwiperContainer.querySelector('.swiper-button-prev'),
-                },
-            });
-        } else {
-            console.warn("Swiper container not found in modal content.");
-        }
 
         // Optionally, re-attach listener for add to cart button inside the modal
         const modalAddToCartBtn = modalInner.querySelector('.products__cta');
@@ -402,10 +380,37 @@ window.addEventListener('load', async () => {
     closeModal.addEventListener('click', () => {
         modal.classList.remove('is-open');
         modalInner.innerHTML = ''; // Clear content on close
+        
+    });
+  };
+
+  const modalNav = () => {
+    const nav__items = document.querySelectorAll('footer ul li');
+    const modal = document.querySelector('#navigationModal');
+    const modalInner = modal.querySelector('.modal__inner');
+    const closeModal = modal.querySelector('.modal__close');
+
+    if (!modal || !modalInner || !closeModal) {
+        console.error("Modal elements (.modal, .modal__inner, .modal__close) not found.");
+        return;
+    }
+
+    nav__items.forEach((item) => {
+      item.addEventListener('click', (event) => {
+        modal.classList.add('is-open');
+        modalInner.innerHTML = item.innerHTML;
+
+      });
+       
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.classList.remove('is-open');
+        modalInner.innerHTML = ''; // Clear content on close
+        
     });
   };
   // --- End Modal Zoom ---
-
 
   // Fetch data and initialize everything
   await fetchCollectionsAndProducts();
@@ -428,7 +433,7 @@ window.addEventListener('load', async () => {
       });
 
       Draggable.create(navContainer, {
-          type: 'x', // Only drag horizontally
+          // type: 'x', // Only drag horizontally
           bounds: { minX: 0, maxX: window.innerWidth }, // Adjust bounds as needed
           inertia: true,
         //   throwProps: true, // InertiaPlugin handles throw behavior
