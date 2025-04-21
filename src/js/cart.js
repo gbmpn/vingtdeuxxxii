@@ -238,9 +238,9 @@ class Cart {
       <img class="cart-item__img" src="${item.cover || ''}" alt="${item.name || 'Product Image'}">
       <div class="cart-item__details">
         <span class="cart-item__details-title">${item.name}</span>
-        <button class="cart-item__remove-btn">Remove</button>
+        <button class="cart-item__remove-btn">Retirer</button>
         <div class="cart-item__details-wrap">
-          <span class="cart-item__details-label">Quantity:</span>
+          <span class="cart-item__details-label">Quantité:</span>
           <div class="cart-item__details-actions">
             <button class="cart-item__minus-button">-</button>
             <span class="cart-item__quantity">${item.quantity || 1}</span>
